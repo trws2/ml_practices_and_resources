@@ -1,6 +1,8 @@
-# 100 days of CUDA Learning/Coding
+# 100 days of Learning/Coding
 
-This repo serves as a record to track my learning of CUDA for 100 days.
+This repo serves as a record to track my learning of DL for 100 days.
+
+- Day 1: start learning CUDA and code add.cu
 
 ---
 
