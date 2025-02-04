@@ -6,6 +6,7 @@ This repo serves as a record to track my learning of DL for 100 days.
 - Day 4-5: Implement [YouTube Video to Doc (vid2doc) for Quick Video Content Reading](https://github.com/trws2/vid2doc)
 - Day 6: Start learning CUDA and code [add.cu](https://github.com/trws2/100-days/tree/main/day06)
 - Day 7: Slides for [RL is Almost All Your Need in Post-Training](https://github.com/trws2/100-days/blob/main/day07/RL%20is%20Almost%20All%20Your%20Need%20in%20Post-Training.pdf)
+- Day 8: Learn [AI by hand]()
 
 ---
 
