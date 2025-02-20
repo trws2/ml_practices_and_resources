@@ -1,4 +1,3 @@
-Day 09 to 11:
 
 - Went over the following LLMer [videos](https://www.youtube.com/@LLMer_2025/videos). So far, the best videos to learn LLM for me.
   - 有难度但必读的一篇论文《DeepSeekMath》(SFT and RL can be unified via one equation)
