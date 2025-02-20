@@ -10,6 +10,7 @@ This repo serves as a record to track my learning of DL for 100 days.
 - Day 9-11: Learn [LLMer videos](https://github.com/trws2/100-days/tree/main/day09-11). The LLM educational videos for me so far.
 - Day 12: Learn [LLM Reasoning: Key Ideas and Limitations](https://llmagents-learning.org/slides/llm-reasoning.pdf)
 - Day 13-14: Build [a small LLM based text from two books](https://github.com/trws2/finance_data/tree/main)
+- Day 15: Started [aiml-jit](https://github.com/trws2/aiml-jit)
 
 ---
 
