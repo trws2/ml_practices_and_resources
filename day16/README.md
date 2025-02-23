@@ -1,0 +1,174 @@
+- All coding patterns
+  - Topological sort
+    - Compilation Order
+    - Alien Dictionary
+    - Verifying an Alien Dictionary
+    - Course Schedule II
+    - Course Schedule
+    - Build a Matrix with Conditions
+    - Longest Path With Different Adjacent Characters
+    - Find All Possible Recipes from Given Supplies
+  - Sort and Search
+    - Find the Distance Value Between Two Arrays
+    - Longest Subsequence With Limited Sum
+    - Find Target Indices After Sorting Array
+    - Count Pairs in Two Arrays
+    - Valid Triangle Number
+    - Minimum Operations to Make All Array Elements Equal
+    - Sum of Mutated Array Closest to Target
+    - Range Sum of Sorted Subarray Sums
+    - Magnetic Force Between Two Balls
+    - Find K-th Smallest Pair Distance
+    - Minimum Space Wasted from Packaging
+    - Russian Doll Envelopes
+    - Two Sum Less Than K
+    - Maximum Number of Integers to Choose from a Range I
+  - Matrices
+    - Set Matrix Zeroes
+    - Rotate Image
+    - Spiral Matrix
+    - Where Will the Ball Fall
+    - Transpose Matrix
+    - Count Negative Numbers in a Sorted Matrix
+    - Minimum Time Takes to Reach Destination Without Drowning
+    - Smallest Rectangle Enclosing Black Pixels
+    - Island Perimeter
+    - Convert 1D Array Into 2D Array
+    - Spiral Matrix II
+  - Stacks
+    - Basic Calculator
+    - Remove All Adjacent Duplicates In String
+    - Minimum Remove to Make Valid Parentheses
+    - Exclusive Time of Functions
+    - Flatten Nested List Iterator
+    - Implement Queue Using Stacks
+    - Daily Temperatures
+    - Decode String
+    - Minimum String Length After Removing Substrings
+    - Valid Parentheses
+  - Graphs
+    - Network Delay Time
+    - Paths in Maze That Lead to Same Room
+    - Clone Graph
+    - Graph Valid Tree
+    - Bus Routes
+    - Reconstruct Itinerary
+    - Find the Town Judge
+    - Find Center of Star Graph
+    - Lucky Numbers in a Matrix
+  - Tree Depth-First Search
+    - Flatten Binary Tree to Linked List
+    - Diameter of Binary Tree
+    - Serialize and Deserialize Binary Tree
+    - Invert Binary Tree
+    - Binary Tree Maximum Path Sum
+    - Convert Sorted Array to Binary Search Tree
+    - Build Binary Tree from Preorder and Inorder Traversal
+    - Binary Tree Right Side View
+    - Lowest Common Ancestor of a Binary Tree
+    - Validate Binary Search Tree
+    - Nested List Weight Sum II
+    - Inorder Successor in BST
+    - Height of Binary Tree After Subtree Removal Queries
+    - Delete Nodes And Return Forest
+    - Maximum Depth of Binary Tree
+    - Kth Smallest Element in a BST
+  - Tree Breadth-First Search
+    - Binary Tree Level Order Traversal
+    - Binary Tree Zigzag Level Order Traversal
+    - Populating Next Right Pointers in Each Node
+    - Vertical Order Traversal of a Binary Tree
+    - Symmetric Tree
+    - Word Ladder
+    - Two Sum IV – Input Is a BST
+    - Connect All Siblings of a Binary Tree
+  - Trie
+    - Implement Trie (Prefix Tree)
+    - Search Suggestions System
+    - Replace Words
+    - Design Add and Search Words Data Structure
+    - Word Search II
+    - Top K Frequent Words
+    - Longest Common Prefix
+    - Index Pairs of a String
+    - Lexicographical Numbers
+  - Hash Maps
+    - Design HashMap
+    - Fraction to Recurring Decimal
+    - Logger Rate Limiter
+    - Next Greater Element I
+    - Isomorphic Strings
+    - Find Duplicate File in System
+    - Dot Product of Two Sparse Vectors
+    - High Five
+    - Bulls and Cows
+    - Custom Sort String
+    - Number of Distinct Islands
+    - Number of Wonderful Substrings
+    - Total Appeal of a String
+    - Continuous Subarray Sum
+    - Unique Number of Occurrences
+    - Longest Palindrome
+  - Knowing What to Track
+    - Palindrome Permutation
+    - Valid Anagram
+    - Design Tic-Tac-Toe
+    - Group Anagrams
+    - Maximum Frequency Stack
+    - First Unique Character in a String
+    - Find All Anagrams in a String
+    - Longest Palindrome by Concatenating Two-Letter Words
+    - Rank Teams by Votes
+    - Pairs of Songs With Total Durations Divisible by 60
+    - Minimum Number of Pushes to Type Word II
+    - Ransom Note
+  - Union Find
+    - Redundant Connection
+    - Number of Islands
+    - Most Stones Removed with Same Row or Column
+    - Longest Consecutive Sequence
+    - Last Day Where You Can Still Cross
+    - Regions Cut by Slashes
+    - Accounts Merge
+    - Minimize Malware Spread
+    - Find if Path Exists in Graph
+    - The Skyline Problem
+    - Evaluate Division
+  - Custom Data Structures
+    - Snapshot Array
+    - Time Based Key-Value Store
+    - LRU Cache
+    - Insert Delete GetRandom O(1)
+    - Min Stack
+    - Range Module
+    - Shortest Word Distance II
+    - Design HashSet
+    - Max Stack
+    - Moving Average from Data Stream
+    - Two Sum III - Data structure design
+    - Range Sum Query - Immutable
+    - LFU Cache
+  - Bitwise Manipulation
+    - Find the Difference
+    - Complement of Base 10 Integer
+    - Flipping an Image
+    - Single Number
+    - Single Number II
+    - Encode and Decode Strings
+    - Sum of All Subset XOR Totals
+    - Find The K-th Lucky Number
+    - Minimum Number of K Consecutive Bit Flips
+    - Find the Longest Substring Having Vowels in Even Counts
+    - Count Triplets That Can Form Two Arrays of Equal XOR
+    - Longest Subarray With Maximum Bitwise AND
+    - Reverse Bits
+  - Math and Geometry
+    - Check If It Is a Straight Line
+    - Minimum Cuts to Divide a Circle
+    - Reverse Integer
+    - Valid Square
+    - Minimum Area Rectangle
+    - Maximum Area Rectangle With Point Constraints I
+    - Convex Polygon
+    - Minimize Manhattan Distances
+    - Minimum Number of Lines to Cover Points
