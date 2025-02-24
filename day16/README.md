@@ -1,4 +1,152 @@
 - All coding patterns
+  - Two Pointers
+    - Valid Palindrome
+    - 2Sum
+    - 3Sum
+    - Remove Nth Node from End of List
+    - Sort Colors
+    - Reverse Words in a String
+    - Valid Word Abbreviation
+    - Strobogrammatic Number
+    - Minimum Number of Moves to Make Palindrome
+    - Next Palindrome Using Same Digits
+    - Lowest Common Ancestor of a Binary Tree III
+    - Count Pairs Whose Sum is Less than Target
+    - Valid Palindrome II
+  - Fast and Slow Pointers
+    - Happy Number
+    - Linked List Cycle
+    - Middle of the Linked List
+    - Circular Array Loop
+    - Find the Duplicate Number
+    - Palindrome Linked List
+    - Maximum Twin Sum of a Linked List
+    - Split a Circular Linked List
+  - Sliding Window
+    - Repeated DNA Sequences
+    - Sliding Window Maximum
+    - Minimum Window Subsequence
+    - Longest Repeating Character Replacement
+    - Minimum Window Substring
+    - Longest Substring without Repeating Characters
+    - Minimum Size Subarray Sum
+    - Maximum Average Subarray I
+    - Diet Plan Performance
+    - Fruit Into Baskets
+    - Contains Duplicate II
+  - Merge Intervals
+    - Merge Intervals
+    - Insert Interval
+    - Interval List Intersections
+    - Employee Free Time
+    - Task Scheduler
+    - Meeting Rooms II
+  - In-Place Manipulation of a Linked List
+    - Reverse Linked List
+    - Reverse Nodes in k-Group
+    - Reverse Linked List II
+    - Reorder List
+    - Swapping Nodes in a Linked List
+    - Reverse Nodes in Even Length Groups
+    - Remove Duplicates from Sorted List
+    - Remove Linked List Elements
+    - Split Linked List in Parts
+    - Delete N Nodes After M Nodes of a Linked List
+    - Swap Nodes in Pairs
+  - Heaps
+    - IPO
+    - Find Median from Data Stream
+    - Sliding Window Median
+    - Schedule Tasks on Minimum Machines
+    - Meeting Rooms III
+    - Largest Number After Digit Swaps by Parity
+    - Find Right Interval
+    - Minimum Cost to Connect Sticks
+    - Longest Happy String
+    - Maximum Average Pass Ratio
+  - K-way merge
+    - Merge Sorted Array
+    - Kth Smallest Number in M Sorted Lists
+    - Find K Pairs with Smallest Sums
+    - Merge K Sorted Lists
+    - Kth Smallest Element in a Sorted Matrix
+  - Top K Elements
+    - Kth Largest Element in a Stream
+    - Reorganize String
+    - K Closest Points to Origin
+    - Top K Frequent Elements
+    - Kth Largest Element in an Array
+    - Third Maximum Number
+    - Find Subsequence of Length K with the Largest Sum
+    - Minimum Cost to Hire K Workers
+    - Maximal Score After Applying K Operations
+    - Find the Kth Largest Integer in the Array
+  - Modified Binary Search
+    - Binary Search
+    - Search in Rotated Sorted Array
+    - First Bad Version
+    - Random Pick with Weight
+    - Find K Closest Elements
+    - Single Element in a Sorted Array
+    - Maximum Value at a Given Index in a Bounded Array
+    - The K Weakest Rows in a Matrix
+    - Split Array Largest Sum
+    - Search in Rotated Sorted Array II
+  - Subsets
+    - Subsets
+    - Permutations
+    - Letter Combinations of a Phone Number
+    - Generate Parentheses
+    - Find K-Sum Subsets
+  - Greedy Techniques
+    - Jump Game
+    - Boats to Save People
+    - Gas Station
+    - Two City Scheduling
+    - Minimum Number of Refueling Stops
+    - Largest Palindromic Number
+    - Assign Cookies
+    - Rearranging Fruits
+    - Number of Steps to Reduce a Binary Number to One
+    - Maximum Swap
+    - Can Place Flowers
+    - Largest Odd Number in String
+    - Jump Game II
+    - Best Time to Buy and Sell Stock
+  - Backtracking
+    - N-Queens
+    - Word Search
+    - House Robber III
+    - Restore IP Addresses
+    - Flood Fill
+    - Minimum Moves to Spread Stones Over Grid
+    - Binary Tree Paths
+    - Binary Watch
+    - Optimal Account Balancing
+    - Sudoku Solver
+    - Matchsticks to Square 
+  - Dynamic Programming
+    - 0/1 Knapsack
+    - Coin Change
+    - N-th Tribonacci Number
+    - Partition Equal Subset Sum
+    - Counting Bits
+    - 01 Matrix
+    - House Robber II
+    - Maximum Product Subarray
+    - Combination Sum
+    - Word Break
+    - Palindromic Substrings
+    - Longest Common Subsequence
+    - Word Break II
+    - Decode Ways
+    - Count the Number of Good Subsequences
+    - Climbing Stairs
+  - Cyclic Sort
+    - Missing Number
+    - First Missing Positive
+    - Find the Corrupt Pair
+    - Find the First K Missing Positive Numbers
   - Topological sort
     - Compilation Order
     - Alien Dictionary
