@@ -11,6 +11,8 @@ This repo serves as a record to track my learning of DL for 100 days.
 - Day 12: Learn [LLM Reasoning: Key Ideas and Limitations](https://llmagents-learning.org/slides/llm-reasoning.pdf)
 - Day 13-14: Build [a small LLM based text from two books](https://github.com/trws2/finance_data/tree/main)
 - Day 15: Started [aiml-jit](https://github.com/trws2/aiml-jit)
+- Day 16: general coding pattern organization started [ref](https://github.com/trws2/100-days/blob/main/day16/README.md)
+- Day 17: start practicing general coding problems []
 
 ---
 

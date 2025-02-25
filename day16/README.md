@@ -1,4 +1,4 @@
-- All coding patterns
+# All coding patterns and their representative problems
   - Two Pointers
     - Valid Palindrome
     - 2Sum
@@ -320,3 +320,11 @@
     - Convex Polygon
     - Minimize Manhattan Distances
     - Minimum Number of Lines to Cover Points
+
+# Practicing Progress based on Grind 75
+  - [day17](https://github.com/trws2/100-days/tree/main/day17)
+    - Two Sum
+    - Valid Parentheses
+    - Merge Two Sorted Lists
+    - Best Time to Buy and Sell Stock
+
