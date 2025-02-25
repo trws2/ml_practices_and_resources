@@ -1,3 +1,2 @@
 # Grind 75 Week 1
-- reference [ref1](https://docs.google.com/presentation/d/1QXW04hWcs6pU3SZ4RleGbE1b-dt_c_F6Q3ZQYFeC92w/edit#slide=id.p), [ref2](https://docs.google.com/presentation/d/1C9ZUlpgpZ0hOMOTX0Rf9xHdWbywsU1-YTIoiZXMO1hY/edit#slide=id.g8d54549331_0_65), [ref3](https://docs.google.com/presentation/d/1liDgbYRe3xfaHhFeCjiB_EVNjROshs8TLUWVnQXNi0E/edit#slide=id.g2a15749beb0_0_175), [ref4](https://docs.google.com/presentation/d/1TEGC2enyTGPUmTgUjtOmWZ9ij18nXrcP5cXjyPFw3-Q/edit#slide=id.gec2f251673_0_5), [ref5](https://docs.google.com/presentation/d/1MCTF9_hPpqR9ZyiVyCYm_KQWFeow6W_GSzJRZyVVNaQ/edit#slide=id.gf6a684186a_0_17)
-
+- [经典考题(八) -- Palindrome 回文系列](https://docs.google.com/presentation/d/17MBk7UcDYcmUCtJsYj_m9SgnDPm-x3ByPxZ-ENqg6bk/edit#slide=id.g105d70bbe33_0_0)
