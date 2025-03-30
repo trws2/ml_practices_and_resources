@@ -13,9 +13,12 @@ This repo serves as a record to track my learning of DL for 100 days.
 - Day 15: Started [aiml-jit](https://github.com/trws2/aiml-jit)
 - Day 16: general coding pattern organization started [ref](https://github.com/trws2/100-days/blob/main/day16/README.md)
 - Day 17: start practicing general coding problems [ref](https://github.com/trws2/100-days/tree/main/day17)
+- Day 17-36: practicing [Grind 75 problems](https://www.techinterviewhandbook.org/grind75/?hours=8)
+- Day 37: continue Grind 75 problems and taking machine learning system design from educative.io [ref](https://github.com/trws2/100-days/tree/main/day37)
 
 
 # Pointers
 - [ChatGPT System Design](https://algodaily.com/lessons/chatgpt-system-design)
+- [notes for recsys](https://vinija.ai/recsys/)
 
 
