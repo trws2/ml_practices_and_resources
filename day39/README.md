@@ -10,5 +10,6 @@ where $`y_i \in \{0, 1\}`$ is the ground truth label for positive class for exam
 \frac{\frac{1}{N}\sum_{i}^{N} (y_i log(p_i) + (1-y_i)log(1 - p_i))}{p_{base} log(p_{base}) + (1-p_{base}) log(1-p_{base})}
 ```
 where $`p_{base} = \frac{1}{N} \sum_{i}^{N} y_i`$ is the positive class probability from training samples.
-- you can reference this [A Guide To Normalized Cross Entropy](https://forecastegy.com/posts/normalized-cross-entropy/) for more details
-
+- you can reference [A Guide To Normalized Cross Entropy](https://forecastegy.com/posts/normalized-cross-entropy/) for more details
+- [DLRM: An advanced, open source deep learning recommendation model](https://ai.meta.com/blog/dlrm-an-advanced-open-source-deep-learning-recommendation-model/)
+  - [repo](https://github.com/facebookresearch/dlrm)
