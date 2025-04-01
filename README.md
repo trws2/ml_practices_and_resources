@@ -15,10 +15,11 @@ This repo serves as a record to track my learning of DL for 100 days.
 - Day 17: start practicing general coding problems [ref](https://github.com/trws2/100-days/tree/main/day17)
 - Day 17-36: practicing [Grind 75 problems](https://www.techinterviewhandbook.org/grind75/?hours=8)
 - Day 37: continue Grind 75 problems and taking machine learning system design from educative.io [ref](https://github.com/trws2/100-days/tree/main/day37)
+- Day 38: completed machine learning system design from educative.io and obtained the certificate.
 
 
 # Pointers
 - [ChatGPT System Design](https://algodaily.com/lessons/chatgpt-system-design)
 - [notes for recsys](https://vinija.ai/recsys/)
-
+- [Facebook Deep Learning Recommendation Model for Personalization and Recommendation Systems](https://github.com/facebookresearch/dlrm)
 
