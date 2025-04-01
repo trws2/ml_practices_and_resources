@@ -14,3 +14,29 @@ where $`p_{base} = \frac{1}{N} \sum_{i}^{N} y_i`$ is the positive class probabil
 - [DLRM: An advanced, open source deep learning recommendation model](https://ai.meta.com/blog/dlrm-an-advanced-open-source-deep-learning-recommendation-model/)
   - [repo](https://github.com/facebookresearch/dlrm)
 - completed machine learning system design from educative.io and obtained the certificate.
+  - ML system design template
+    - Problem statement and metrics
+      - Problem Statement
+      - Metric design and requirements
+        - Metrics
+          - offline metrics
+          - online metrics
+        - Requirements
+          - Training
+          - Inference
+      - Summary 
+    - Model
+      - Feature engineering
+      - Training data
+      - Model
+        - Selection
+        - Evaluation
+    - System Design
+      - Calculation and estimation
+        - Assumptions
+        - Data size
+        - Scale
+      - High level design
+      - Scale the design
+      - Follow up questions
+      - Summary
