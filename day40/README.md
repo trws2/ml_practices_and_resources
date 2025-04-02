@@ -4,16 +4,16 @@
   - The final answer doesn’t matter. What matters is the **process and the journey** that a good applicant takes the interviewer through.
   - It’s commonly believed in the systems community that when some aspect of the system increases by **a factor of ten or more, the same design might not hold and might require change.**
   - Important distributed system concepts:
-    - Robustness: robustness refers to the ability of the system to remain functional and provide reliable performance in the face of various challenges and failures. This includes resilience to hardware failures, network issues, and unexpected conditions that could disrupt normal operations.
-    - Scalability: scalability refers to the ability of the system to handle an increasing amount of work or to accommodate growth **without compromising performance or reliability**. It is a critical characteristic that determines how well a system can expand in response to higher demand.
-    - Availability: Availability refers to the system's ability to remain operational and accessible to users, even in the presence of failures. A highly available system ensures that requests receive a response (success or failure) within a reasonable time frame.
-    - Performance: 
-    - Extensibility:
-    - Resiliency: the ability to return to normal operations over an acceptable period of time post-disruption
-    - Consistency: Consistency ensures that all nodes in a distributed system reflect the same data at the same time. When a user makes a change to the data, all subsequent reads should return the most recent write.
-  - What is partition is distributed system?
+    - **Robustness**: robustness refers to the ability of the system to remain functional and provide reliable performance in the face of various challenges and failures. This includes resilience to hardware failures, network issues, and unexpected conditions that could disrupt normal operations.
+    - **Scalability**: scalability refers to the ability of the system to handle an increasing amount of work or to accommodate growth **without compromising performance or reliability**. It is a critical characteristic that determines how well a system can expand in response to higher demand.
+    - **Availability**: Availability refers to the system's ability to remain operational and accessible to users, even in the presence of failures. A highly available system ensures that requests receive a response (success or failure) within a reasonable time frame.
+    - **Performance**: Performance refers to using some metrics, such as throughput and latency to quantify how effectively and efficiently the system operates.
+    - **Extensibility**: Extensibility refers to the ability to easily add new features, components, or functionalities without significantly disrupting the existing system. 
+    - **Resiliency**: resiliency refers to the ability to return to normal operations over an acceptable period of time post-disruption.
+    - **Consistency**: Consistency ensures that all nodes in a distributed system reflect the same data at the same time. When a user makes a change to the data, all subsequent reads should return the most recent write.
+  - What is **a partition in distributed system**?
     - In distributed systems, a partition refers to a situation where network communication between different nodes (or groups of nodes) is disrupted. This can occur due to various reasons, such as network failures, hardware malfunctions, or network congestion.
-  - What is CAP Theorem:
+  - What is **CAP Theorem**:
     - The concept of partitions is central to the CAP theorem, which states that in the presence of a network partition, a distributed system can only guarantee either consistency or availability, but not both.
     - Imagine a distributed database spread across multiple servers. If two servers are unable to communicate due to a network failure, they are in a partition. Updates made to the database on one server will not be visible to the other until the partition is resolved, potentially leading to inconsistencies in the data.
   - Key aspect of scalability:
