@@ -30,3 +30,7 @@
       - Scalability is closely related to elasticity, which refers to the system's ability to **automatically** adjust resources up or down based on current workloads. This is particularly important in cloud environments.
     - Performance Metrics
       - Scalability is often measured in terms of **throughput (the number of requests handled per second) and latency (the time taken to process a request)**. A scalable system should maintain performance levels as load increases.
+  - What is **PACELC theorem**?
+    - if partitioning exist, trade off between availability and consistency.
+    - if not, trade off between latency and consistency.
+
