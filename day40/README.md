@@ -1,0 +1,32 @@
+# Day 37:
+
+- started grokking the modern system design interview from educative.io
+  - The final answer doesn’t matter. What matters is the **process and the journey** that a good applicant takes the interviewer through.
+  - It’s commonly believed in the systems community that when some aspect of the system increases by **a factor of ten or more, the same design might not hold and might require change.**
+  - Important distributed system concepts:
+    - Robustness: robustness refers to the ability of the system to remain functional and provide reliable performance in the face of various challenges and failures. This includes resilience to hardware failures, network issues, and unexpected conditions that could disrupt normal operations.
+    - Scalability: scalability refers to the ability of the system to handle an increasing amount of work or to accommodate growth **without compromising performance or reliability**. It is a critical characteristic that determines how well a system can expand in response to higher demand.
+    - Availability: Availability refers to the system's ability to remain operational and accessible to users, even in the presence of failures. A highly available system ensures that requests receive a response (success or failure) within a reasonable time frame.
+    - Performance: 
+    - Extensibility:
+    - Resiliency: the ability to return to normal operations over an acceptable period of time post-disruption
+    - Consistency: Consistency ensures that all nodes in a distributed system reflect the same data at the same time. When a user makes a change to the data, all subsequent reads should return the most recent write.
+  - What is partition is distributed system?
+    - In distributed systems, a partition refers to a situation where network communication between different nodes (or groups of nodes) is disrupted. This can occur due to various reasons, such as network failures, hardware malfunctions, or network congestion.
+  - What is CAP Theorem:
+    - The concept of partitions is central to the CAP theorem, which states that in the presence of a network partition, a distributed system can only guarantee either consistency or availability, but not both.
+    - Imagine a distributed database spread across multiple servers. If two servers are unable to communicate due to a network failure, they are in a partition. Updates made to the database on one server will not be visible to the other until the partition is resolved, potentially leading to inconsistencies in the data.
+  - Key aspect of scalability:
+    - Types of Scalability:
+      - Vertical Scalability (**Scaling Up**): Involves **adding more resources (CPU, RAM, storage) to a single node**. While this can improve performance, it has limits and can become costly.
+      - Horizontal Scalability (**Scaling Out**): Involves **adding more nodes** to the system. This approach is often more flexible and cost-effective, allowing systems to expand by distributing the load across multiple machines.
+    - Load Balancing:
+      - Effective load balancing is essential for scalability. It ensures that requests are **distributed evenly across nodes**, preventing any single node from becoming a bottleneck.
+    - Data Distribution
+      - As systems scale, **data must be distributed efficiently across nodes**. Techniques like sharding (partitioning data) are used to ensure that no single server is overwhelmed with requests.
+    - Service Decomposition
+      - **Microservices** architecture is often employed to enhance scalability. By breaking down applications into smaller, independent services, each can be scaled independently based on demand.
+    - Elasticity
+      - Scalability is closely related to elasticity, which refers to the system's ability to **automatically** adjust resources up or down based on current workloads. This is particularly important in cloud environments.
+    - Performance Metrics
+      - Scalability is often measured in terms of **throughput (the number of requests handled per second) and latency (the time taken to process a request)**. A scalable system should maintain performance levels as load increases.
