@@ -33,4 +33,16 @@
   - What is **PACELC theorem**?
     - if partitioning exist, trade off between availability and consistency.
     - if not, trade off between latency and consistency.
+  - Sequence of steps to build large-scale distributed systems
+    - Determine system requirements and constraints
+      - we need to first gather the requirements of the system we are building. What is the problem it tries to solve, what is data is handling, and what are constraints in the system (e.g. latency, privacy, security requirements).
+    - Recognize components
+      - we need to identify what system components are involved in the system. Example components include front-end components, load balancers, databases, caches, firewall, CDNs.
+    - Generate design
+      - we generate the design based on the thought processes so far. Drawing the diagram to connect different components. List, for example, basic assumptions, performance requirements (latency, throughput, etc), high level takeaways from the design.
+    - Identify shortcomings in the initial design
+      - we discuss the potential drawbacks of initial design (e.g. when the data volume or user requests grows, can the initial design still satisfy the performance requirements?)
+    - Discuss trade-offs and improve iteratively
+      - discuss the trade-off of current design (e.g. should we add more micro-services so that more people contributes independently or we should reduce the system complexity by limiting the number of micro-services.). Based on discussion with interviewers, we improve our design iteratively to satisfy the agreements discussed with interviewers.
+
 
