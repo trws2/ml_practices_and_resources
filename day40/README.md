@@ -1,4 +1,4 @@
-# Day 37:
+# Day 40:
 
 - started grokking the modern system design interview from educative.io
   - The final answer doesn’t matter. What matters is the **process and the journey** that a good applicant takes the interviewer through.

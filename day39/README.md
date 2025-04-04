@@ -1,4 +1,4 @@
-Day 37:
+Day 39:
 
 - cross entropy for binary classification
 ```math
