@@ -7,8 +7,6 @@
                 - Response from DNS must be returned swiftly to resolve the IP address of a web url. Therefore, the DNS service must achieve high performance.
                 - We have billions of users from around the world that need to use DNS to get IP addressed to access internet. Therefore, the DNS service must achieve scalability.
                 - DNS prioritizes **eventual consistency** because it processes significantly more read operations than write operations. Updates to DNS records propagate lazily, allowing for faster responses to queries without overloading the infrastructure.
-        - To maintain high availability, should the TTL value be large or small?
-            - 
         - what is the difference between UDP and TCP?
             - In computer networks, UDP (User Datagram Protocol) and TCP (Transmission Control Protocol) are two fundamental protocols for data transmission. Here are the key differences between them:
                 - Connection Type
@@ -30,6 +28,15 @@
                     - TCP: Larger header (20 bytes minimum) due to additional control information.
                     - UDP: Smaller header (8 bytes), leading to less overhead.
                 - In sum, TCP is reliable and ordered, making it suitable for critical data transmission, while UDP is faster and simpler, ideal for applications that prioritize speed over reliability.
+        - DNS caching improves performance but introduces the risk of stale data. Suppose an organization updates its website’s IP address, but many users still access the old IP due to caching. Propose a strategy to minimize disruption in such scenarios.
+            - Set a short TTL so that updated record can be fetched.
+            - Use a CDN to help mitigate the cache issue, as CDNs often have their own cache mechanisms and can route user to the correct content regardless of DNS caching
+            - Inform user that there is an update in IP address
+            - Maintain both old and new IP addresses for a period of time before the old address is gone, make both address point to the same server or load balancer.
+
+
+
+
 
 
 
