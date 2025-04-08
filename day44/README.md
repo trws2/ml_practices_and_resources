@@ -10,9 +10,8 @@
         - Discuss solutions for maintaining session persistence in a highly available load-balancing setup.
             - Database-backed Sessions. Description: Store session data in a relational or NoSQL database. Implementation: When a user logs in or starts a session, the session data is saved to the database. Each request can then check the database for session data, ensuring consistency across servers.
             - Distributed Session Store. Description: Store session data in a centralized, distributed data store to allow any server to retrieve session information. Implementation: Use databases like Redis, Memcached, or a SQL database to persist session data. This allows all servers to access the same session information regardless of where the request is routed.
-
-
-
-
-
+        - Having familiarized yourself with load balancers, consider a scenario where you deploy a website that serves static content, such as text and images. Would you choose a stateful or stateless load balancer, and why?
+            - I will use stateless load balancer as these are static content, may not need to track user session or maintain state information between requests. 
+        - In this chapter, we have explored various functions of load balancing. In addition to different roles, load balancers are often responsible for mitigating distributed denial-of-service (DDoS) attacks. How can they distinguish between legitimate traffic and malicious traffic during such incidents?
+            - Load balancers mitigate DDoS attacks by analyzing traffic patterns for anomalies, implementing rate limiting, using behavioral analytics, checking IP reputations, serving CAPTCHA challenges, and performing Layer 7 inspections. They can also block known malicious IPs or regions, as well as the challenges posed by IP spoofing and distributed attacks. These techniques work together to enhance security and ensure legitimate traffic is prioritized. 
 
