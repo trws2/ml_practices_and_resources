@@ -14,4 +14,12 @@
             - I will use stateless load balancer as these are static content, may not need to track user session or maintain state information between requests. 
         - In this chapter, we have explored various functions of load balancing. In addition to different roles, load balancers are often responsible for mitigating distributed denial-of-service (DDoS) attacks. How can they distinguish between legitimate traffic and malicious traffic during such incidents?
             - Load balancers mitigate DDoS attacks by analyzing traffic patterns for anomalies, implementing rate limiting, using behavioral analytics, checking IP reputations, serving CAPTCHA challenges, and performing Layer 7 inspections. They can also block known malicious IPs or regions, as well as the challenges posed by IP spoofing and distributed attacks. These techniques work together to enhance security and ensure legitimate traffic is prioritized. 
-
+    - Databases
+        - relational databases
+            - it adhere to particular schema before storing the data
+            - SQL is used to manipulate the database
+        - non-relational databases
+            - key-value stores
+            - document databases
+            - graph databases
+            - columnar databases

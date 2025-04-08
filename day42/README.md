@@ -60,12 +60,16 @@
         - Number of requests can be processed within 1 second with 1 core is 1000
         - Number of requests can be processed with 1 second with 64 cores is 64,000
     - Resource Estimation
-      - Need to estimate request per second.
-      - We have total requests per day, we can compute request per second with assumption
-        - assume eventually distributed
-        - assume 80% of peak traffic happens in 20% of time
-      - We can log the historical traffic stat and get the peak traffic number by looking at historical number
-      - We have estimated the number of requests a server can process (RPS), we have estimate the server needed by: number_of_requests_per_second / RPS
-
-
-
+      - Server requirement to process requests
+        - Need to estimate request per second.
+        - We have total requests per day, we can compute request per second with assumption
+          - assume eventually distributed
+          - assume 80% of peak traffic happens in 20% of time
+        - We can log the historical traffic stat and get the peak traffic number by looking at historical number
+        - We have estimated the number of requests a server can process (RPS), we have estimate the server needed by: S = number_of_requests_per_second / RPS
+        - We can get the hourly cost, C, of renting a server instance from AWS. We, thus, get the hourly cost handle our requests by: C * S
+      - Storage requirements
+        - store data such as texts, images, vidoes, audios
+      - Bandwidth requirements
+        - from storage estimation, you can get incoming traffic per second (post tweets) and outgoing traffic per second (view tweets). Sum them up is the bandwidth requirement assuming there is no compression
+        - note that we use bits or bytes to measure bandwidth, or Gbps (billions of bits per second).
