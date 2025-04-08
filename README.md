@@ -21,6 +21,6 @@ This repo serves as a record to track my learning of DL for 100 days.
 
 # Pointers
 - [ChatGPT System Design](https://algodaily.com/lessons/chatgpt-system-design)
-- [notes for recsys](https://vinija.ai/recsys/)
+- [Notes for recsys](https://vinija.ai/recsys/)
 - [Facebook Deep Learning Recommendation Model for Personalization and Recommendation Systems](https://github.com/facebookresearch/dlrm)
 - [Eugene Yan's ML/LLM system design writeups](https://eugeneyan.com/start-here/)
