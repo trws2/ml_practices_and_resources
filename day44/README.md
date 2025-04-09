@@ -23,3 +23,15 @@
             - document databases
             - graph databases
             - columnar databases
+        - Why do you need databases? Why can’t you just use files?
+            - We need a database due to the following reasons:
+            - Managing large data: A large amount of data can be easily handled with a database, which wouldn’t be possible using other tools.
+            - Retrieving accurate data (data consistency): Due to different constraints in databases, we can retrieve accurate data whenever we want.
+            - Easy update: It is quite easy to update data in databases using data manipulation language (DML).
+            - Security: Databases ensure the security of the data. A database only allows authorized users to access data.
+            - Data integrity: Databases ensure data integrity by using different constraints for data.
+            - Availability: Databases can be replicated on different servers, which can be concurrently updated. These replicas ensure availability.
+            - Scalability: Databases are divided into multiple partitions to manage the load on a single node. This increases scalability.
+            - Efficiency in data retrieval: Databases are designed to facilitate quick and efficient retrieval of data.
+            - Data recovery and backup: Databases offer mechanisms for data backup and recovery to protect against data loss due to hardware failures, power outages, or other disasters.
+
