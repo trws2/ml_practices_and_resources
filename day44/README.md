@@ -34,4 +34,7 @@
             - Scalability: Databases are divided into multiple partitions to manage the load on a single node. This increases scalability.
             - Efficiency in data retrieval: Databases are designed to facilitate quick and efficient retrieval of data.
             - Data recovery and backup: Databases offer mechanisms for data backup and recovery to protect against data loss due to hardware failures, power outages, or other disasters.
+    - key-value stores
+        - Describe how a key-value store can support incremental scalability without disrupting service availability.
+            - With consistent hashing and data Migration, we can minimizes data movement when nodes are added or removed. It ensures that only a fraction of keys need to be relocated, reducing disruption. Data migration can happen in the background, allowing the system to continue processing requests while keys are being moved to new nodes. This ensures that user-facing operations are not disrupted. Instead of moving all data at once, data can also be migrated incrementally. This approach allows for gradual adjustment of load and minimizes impact on performance. Also, with data redundancy, such as virtual nodes, we not only provides high availability but also allows for load balancing since read requests can be served by any replica.
 
