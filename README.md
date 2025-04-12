@@ -19,8 +19,15 @@ This repo serves as a record to track my learning of DL for 100 days.
 - Day 39: completed machine learning system design from educative.io and obtained the certificate. Checkout ML system design template. [ref](https://github.com/trws2/100-days/tree/main/day39)
 
 
-# Pointers
+# Resources
 - [ChatGPT System Design](https://algodaily.com/lessons/chatgpt-system-design)
 - [Notes for recsys](https://vinija.ai/recsys/)
-- [Facebook Deep Learning Recommendation Model for Personalization and Recommendation Systems](https://github.com/facebookresearch/dlrm)
 - [Eugene Yan's ML/LLM system design writeups](https://eugeneyan.com/start-here/)
+- [MLOps Zoomcamp: A Free 9-Week Course on Productionizing ML Services](https://github.com/DataTalksClub/mlops-zoomcamp)
+- MLOps related [Made With ML: from experimentation (design + development) to production (deployment + iteration)](https://madewithml.com/)
+- [Facebook Deep Learning Recommendation Model for Personalization and Recommendation Systems](https://github.com/facebookresearch/dlrm)
+- [Sequence learning: A paradigm shift for personalized ads recommendations](https://engineering.fb.com/2024/11/19/data-infrastructure/sequence-learning-personalized-ads-recommendations/)
+- [Meta’s approach to machine learning prediction robustness](https://engineering.fb.com/2024/07/10/data-infrastructure/machine-learning-ml-prediction-robustness-meta/)
+- [Taming the tail utilization of ads inference at Meta scale](https://engineering.fb.com/2024/07/10/production-engineering/tail-utilization-ads-inference-meta/)
+- [Under the hood: Photo Search](https://engineering.fb.com/2017/05/22/ml-applications/under-the-hood-photo-search/)
+- [Large scale concurrent model development in ads ranking](https://atscaleconference.com/videos/ai-scale-2020-mastercook-large-scale-concurrent-model-development-in-ads-ranking/)
