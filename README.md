@@ -37,3 +37,7 @@ This repo serves as a record to track my learning of DL for 100 days.
     - [Distributed Systems for Practitioners](https://www.educative.io/courses/distributed-systems-practitioners)
     - [Grokking Computer Networking for Software Engineers](https://www.educative.io/courses/grokking-computer-networking)
     - [Operating Systems: Virtualization, Concurrency & Persistence](https://www.educative.io/courses/operating-systems-virtualization-concurrency-persistence)
+- ml coding
+    - [ml coding from deep-ml.com](https://github.com/trws2/aiml-jit/tree/main/src/MLC)
+    - [TorchLeet: pytorch practice problems](https://github.com/Exorust/TorchLeet)
+    - [Torch Puzzles: practice the tensor language using pytorch](https://github.com/srush/Tensor-Puzzles)
