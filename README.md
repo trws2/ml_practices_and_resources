@@ -17,6 +17,8 @@ This repo serves as a record to track my learning of DL for 100 days.
 - Day 37: continue Grind 75 problems and taking machine learning system design from educative.io [ref](https://github.com/trws2/100-days/tree/main/day37)
 - Day 38: continue Grind 75 problems.
 - Day 39: completed machine learning system design from educative.io and obtained the certificate. Checkout ML system design template. [ref](https://github.com/trws2/100-days/tree/main/day39)
+- Day 40-48: finish Grind 75 problems and continue to neetcode 150 and started grokking the modern system design interview from educative.io.
+- Day 49: continue neetcode 150 and practice [ml coding from deep-ml.com](https://github.com/trws2/aiml-jit/tree/main/src/MLC)
 
 
 # Resources
@@ -31,3 +33,7 @@ This repo serves as a record to track my learning of DL for 100 days.
 - [Taming the tail utilization of ads inference at Meta scale](https://engineering.fb.com/2024/07/10/production-engineering/tail-utilization-ads-inference-meta/)
 - [Under the hood: Photo Search](https://engineering.fb.com/2017/05/22/ml-applications/under-the-hood-photo-search/)
 - [Large scale concurrent model development in ads ranking](https://atscaleconference.com/videos/ai-scale-2020-mastercook-large-scale-concurrent-model-development-in-ads-ranking/)
+- Prerequisites for system design
+    - [Distributed Systems for Practitioners](https://www.educative.io/courses/distributed-systems-practitioners)
+    - [Grokking Computer Networking for Software Engineers](https://www.educative.io/courses/grokking-computer-networking)
+    - [Operating Systems: Virtualization, Concurrency & Persistence](https://www.educative.io/courses/operating-systems-virtualization-concurrency-persistence)
