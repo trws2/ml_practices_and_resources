@@ -1,3 +1,6 @@
+# runtime: O(m x n)
+# space: O(m x n)
+
 class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
         rows = len(grid)
