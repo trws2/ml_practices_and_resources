@@ -1,3 +1,40 @@
+# runtime: O(numCourses + |prerequisites|)
+# space: O(numCourses + |prerequisites|)
+
+# newer implementation
+class Solution:
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        # compute in-degree for all courses
+        in_degree = [0] * numCourses
+        for preq in prerequisites:
+            in_degree[preq[0]] += 1
+
+        adj_list = defaultdict(list)
+        for preq in prerequisites:
+            adj_list[preq[1]].append(preq[0])
+
+        queue = deque()
+        for course in range(numCourses):
+            if in_degree[course] == 0:
+                queue.append(course)
+
+        num_courses_popped = 0
+        while len(queue) > 0:
+            course = queue.popleft()
+            print(f"course popped = {course}")
+            num_courses_popped += 1
+            for next_course in adj_list[course]:
+                in_degree[next_course] -= 1
+                if in_degree[next_course] == 0:
+                    queue.append(next_course)
+
+        if num_courses_popped == numCourses:
+            return True
+
+        return False
+
+
+# older implementation
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         # initialization: adjancency list, indegree list, final answer
