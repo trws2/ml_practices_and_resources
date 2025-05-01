@@ -41,3 +41,5 @@ This repo serves as a record to track my learning of DL for 100 days.
     - [ml coding from deep-ml.com](https://github.com/trws2/aiml-jit/tree/main/src/MLC)
     - [TorchLeet: pytorch practice problems](https://github.com/Exorust/TorchLeet)
     - [Torch Puzzles: practice the tensor language using pytorch](https://github.com/srush/Tensor-Puzzles)
+- ML system design
+    - [what is a feature store?](https://www.tecton.ai/blog/what-is-a-feature-store/)
