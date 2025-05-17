@@ -1,0 +1,87 @@
+Day 55:
+
+- what is SGD?
+    - in each iteration, it uses only one example in the training data to compute the gradient of loss function and update model weights
+- what is batch gradient descent?
+    - in each iteration, it uses all examples in the training data to compute the gradient of loss function and update model weights
+- what is mini-batch gradient descent?
+    - in each iteration, it use a small portion of all training examples to compute the gradient of loss function and udpate model weights
+- what is AdaSGD?
+    - it adapts a single global learning rate for SGD, combining benefits from both SGD and Adam
+- what is Momentum:
+    - it is a technique that helps accelate descent by considering the past gradients.
+- what is RMSprop:
+    - It is the move average of the squared gradients to normalize gradient update. By doing that, it prevents the learning rate from being too small, which is is drawback fro AdaGrad.
+- what is Adam?
+    - Adaptiv moment estimation (Adam): it combines both momentum and RMSprop when doing the gradient descent.
+- what activation function do we use and why?
+    - relu: max{0, x}
+        - pros:
+            - efficient to compute
+            - helps vanishing gradient problem
+            - simple to implement and understand
+            - introduce sparsity in activation, meaning that many neurons can be inactive.
+            - linear for positive inputs
+        - cons:
+            - dying relu problem.
+            - non-zero centered output (always non-negative)
+            - unbounded activation
+            - need careful weight initialization due to dying relu problem
+            - not suitable for all tasks 
+        - what is dying relu problem: negative input causing zero output and zero gradient, potentially causing neurons to become inactive (die) or no update during training.
+    - sigmoid: 1 / (1 + exp(-x))
+        - pros:
+            - smooth gradient so that it avoid sudden jump in output value (e.g. relu)
+            - value is between 0 and 1, suitable for binary classification
+            - the activation function introduce non-linear behavior
+        - cons: 
+            - sensitive to varnish gradient problem as if has small gradient along the edges of activation function
+            - expensive to compute due to exponential function
+            - not centered around zero
+    - tanh: (exp(x) - exp(-x)) / (exp(x) + exp(-x))
+        - pros:
+            - zero centered output
+            - steeper slope compared to sigmoid, which can help with larger learning steps during training
+            - address dying neutral issue as compared to relu
+        - cons:
+            - vanish gradient problem
+            - computational cost
+    - elu: max{alpha (exp(x) - 1), x}
+        - pros:
+            - better classification accuracy and faster convergence as compared to relu
+            - smooth gradient
+            - introduce non-linear behavior
+        - cons:
+            - varnish gradient problem
+            - computation cost
+- what is varnishing gradient problem?
+    - it occurs when when gradient descent when learning a neutral network that as gradients passes through layers in the neutral network, the value becomes extremly small, causing the weights have minimum updates or stop from being updated and resulting slow convergence or halted training process.
+- how to handle imbalanced data?
+    - duplicate mintor samples
+    - down sample major samples
+    - stratified sampling so that samples from different groups are more balanced (e.g. upper bound samples from some majority class)
+    - use loss function with weights that is inverse proportional to the sample size. e.g.
+        - focal loss: $- \alpha * (1 - p_x)^{\gamma} log(p_x)$
+            - $\alpha$ is a hyperparameter that is inverse propotional to class sample size
+            - $(1 - p_x)^{\gamma}$ controls the weight for different examples:
+                - for misclassified negative examples, the weight is close to 1
+        - class balanced loss:
+            - $- \frac{1-\beta}{1-\beta^{y_{tn}}} L(x, t)$
+    - use embedding to mine negative examples using k-nearest neighors
+    - data auguementation to generate new synethic data for minority class
+        - the quality may be hard to control
+        - diversity of data may be low
+- what is bias and variance?
+    - bias (underfitting): make simplistic assumption of the data, leading to inaccurate predictions on the data
+    - variance (overfitting): too sensitive the training data, making the trained model hard to generalize to new/unseen data.
+    - in practice when reducing the bias, it often leads to increased variance. Need to find a balance between bias and variance.
+- what is the possible causes for underfitting and overfitting? How to address them?
+    - underfitting:
+        - make to simple assumption to the data (e.g. use linear model to fit non-linear data)
+        - gradient descent stop too early
+    - overfitting:
+        - over trained (e.g. hyperparameter over tuned on validation data. leading to great performance on validation data. but do not generalize well to unseen data)
+        - model too complex (e.g. dimension of embedding for sparse features are too large)
+        - gradient descent iterate too long
+        - mitigation: early stopping, dropout, pruning, use less-complex model arch, cross-validation, regularization (l1, l2), use only important features, add more diverse training data, data auguementation
+
