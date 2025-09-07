@@ -1,0 +1,185 @@
+- started grokking the modern system design interview from educative.io
+  - The final answer doesn’t matter. What matters is the **process and the journey** that a good applicant takes the interviewer through.
+  - It’s commonly believed in the systems community that when some aspect of the system increases by **a factor of ten or more, the same design might not hold and might require change.**
+  - Important distributed system concepts:
+    - **Robustness**: robustness refers to the ability of the system to remain functional and provide reliable performance in the face of various challenges and failures. This includes resilience to hardware failures, network issues, and unexpected conditions that could disrupt normal operations.
+    - **Scalability**: scalability refers to the ability of the system to handle an increasing amount of work or to accommodate growth **without compromising performance or reliability**. It is a critical characteristic that determines how well a system can expand in response to higher demand.
+    - **Availability**: Availability refers to the system's ability to remain operational and accessible to users, even in the presence of failures. A highly available system ensures that requests receive a response (success or failure) within a reasonable time frame.
+    - **Performance**: Performance refers to using some metrics, such as throughput and latency to quantify how effectively and efficiently the system operates.
+    - **Extensibility**: Extensibility refers to the ability to easily add new features, components, or functionalities without significantly disrupting the existing system. 
+    - **Resiliency**: resiliency refers to the ability to return to normal operations over an acceptable period of time post-disruption.
+    - **Consistency**: Consistency ensures that all nodes in a distributed system reflect the same data at the same time. When a user makes a change to the data, all subsequent reads should return the most recent write.
+  - What is **a partition in distributed system**?
+    - In distributed systems, a partition refers to a situation where network communication between different nodes (or groups of nodes) is disrupted. This can occur due to various reasons, such as network failures, hardware malfunctions, or network congestion.
+  - What is **CAP Theorem**:
+    - The concept of partitions is central to the CAP theorem, which states that in the presence of a network partition, a distributed system can only guarantee either consistency or availability, but not both.
+    - Imagine a distributed database spread across multiple servers. If two servers are unable to communicate due to a network failure, they are in a partition. Updates made to the database on one server will not be visible to the other until the partition is resolved, potentially leading to inconsistencies in the data.
+  - Key aspect of scalability:
+    - Types of Scalability:
+      - Vertical Scalability (**Scaling Up**): Involves **adding more resources (CPU, RAM, storage) to a single node**. While this can improve performance, it has limits and can become costly.
+      - Horizontal Scalability (**Scaling Out**): Involves **adding more nodes** to the system. This approach is often more flexible and cost-effective, allowing systems to expand by distributing the load across multiple machines.
+    - Load Balancing:
+      - Effective load balancing is essential for scalability. It ensures that requests are **distributed evenly across nodes**, preventing any single node from becoming a bottleneck.
+    - Data Distribution
+      - As systems scale, **data must be distributed efficiently across nodes**. Techniques like sharding (partitioning data) are used to ensure that no single server is overwhelmed with requests.
+    - Service Decomposition
+      - **Microservices** architecture is often employed to enhance scalability. By breaking down applications into smaller, independent services, each can be scaled independently based on demand.
+    - Elasticity
+      - Scalability is closely related to elasticity, which refers to the system's ability to **automatically** adjust resources up or down based on current workloads. This is particularly important in cloud environments.
+    - Performance Metrics
+      - Scalability is often measured in terms of **throughput (the number of requests handled per second) and latency (the time taken to process a request)**. A scalable system should maintain performance levels as load increases.
+  - What is **PACELC theorem**?
+    - if partitioning exist, trade off between availability and consistency.
+    - if not, trade off between latency and consistency.
+  - Sequence of steps to build large-scale distributed systems
+    - Determine system requirements and constraints
+      - we need to first gather the requirements of the system we are building. What is the problem it tries to solve, what is data is handling, and what are constraints in the system (e.g. latency, privacy, security requirements).
+    - Recognize components
+      - we need to identify what system components are involved in the system. Example components include front-end components, load balancers, databases, caches, firewall, CDNs.
+    - Generate design
+      - we generate the design based on the thought processes so far. Drawing the diagram to connect different components. List, for example, basic assumptions, performance requirements (latency, throughput, etc), high level takeaways from the design.
+    - Identify shortcomings in the initial design
+      - we discuss the potential drawbacks of initial design (e.g. when the data volume or user requests grows, can the initial design still satisfy the performance requirements?)
+    - Discuss trade-offs and improve iteratively
+      - discuss the trade-off of current design (e.g. should we add more micro-services so that more people contributes independently or we should reduce the system complexity by limiting the number of micro-services.). Based on discussion with interviewers, we improve our design iteratively to satisfy the agreements discussed with interviewers.
+  - Abstraction
+    - Remote procedure call (RPC)
+      - Components of an RPC system
+      - The workflow of an RPC
+    - Consistency
+      - Eventual consistency
+      - Causal consistency
+      - Sequential consistency
+      - Strict consistency or linearizability
+    - Failure Models
+      - Fail-stop
+      - Crash
+      - Omission failure
+      - Temporal failure
+      - Byzantine failure
+    - Non Functional System Characteristics
+      - Availability
+      - Reliability
+      - Scalability
+      - Maintainability
+      - Fault Tolerance
+    - Back-of-the-envolope calculations (BOTEC)
+    - Data center server type
+      - Web servers
+      - Application servers
+      - Storage servers
+    - Server specification dimension
+      - processor
+      - number of cores (e.g. 24)
+      - RAM (GB)
+      - L3 cache (MB)
+      - storage capacity (TB)
+    - Important latency (ns)
+      - L1 cache: 0.9 ns
+      - L2 cache: 2.8 ns
+      - L3 cache: 12.9 ns
+      - main memory reference: 100 ns
+      - compress 1KB with snzip: 3000 (3μs)
+      - Read 1MB sequentially from memory: 9000 (9μs)
+      - Read 1MB sequentially from SSD: 200,000 (200μs)
+      - Round trip within same datacenter: 500,000 (500μs)
+      - Read 1M sequentially from SSD with speed ~1GB/sec SSD: 1,000,000 (1ms)
+      - Disk seek: 4,000,000 (4ms)
+      - Read 1MB sequnetially from disk: 2,000,000 (2ms)
+      - Send packet from SF to NYC: 71,000,000 (71ms)
+    - Important Rates
+      - QPS handled by MySQL: 1000
+      - QPS handled by key-value store: 10,000
+      - QPS handled by server cache: 100,000 - 1,000,000 (1M)
+    - Request estimation in system design
+      - CPU_time_per_program = number_of_instructions_per_program * clock_cycles_per_instruction * CPU_time_per_clock_cycle
+      - suppose we have server with 64 cores with CPU frequency being 3.5GHz
+        - CPU time per cycle = 1 / (3.5 x 10^9) second
+        - Assume each instruction take 1 clock cycle
+        - Assume we have 3.5 x 10^6 instructions per request
+        - CPU time per request  = 3.5 x 10^6 x 1 / (3.5 x 10^9) second = 0.001 second
+        - Number of requests can be processed within 1 second with 1 core is 1000
+        - Number of requests can be processed with 1 second with 64 cores is 64,000
+    - Resource Estimation
+      - Server requirement to process requests
+        - Need to estimate request per second.
+        - We have total requests per day, we can compute request per second with assumption
+          - assume eventually distributed
+          - assume 80% of peak traffic happens in 20% of time
+        - We can log the historical traffic stat and get the peak traffic number by looking at historical number
+        - We have estimated the number of requests a server can process (RPS), we have estimate the server needed by: S = number_of_requests_per_second / RPS
+        - We can get the hourly cost, C, of renting a server instance from AWS. We, thus, get the hourly cost handle our requests by: C * S
+      - Storage requirements
+        - store data such as texts, images, vidoes, audios
+      - Bandwidth requirements
+        - from storage estimation, you can get incoming traffic per second (post tweets) and outgoing traffic per second (view tweets). Sum them up is the bandwidth requirement assuming there is no compression
+        - note that we use bits or bytes to measure bandwidth, or Gbps (billions of bits per second).
+    - Domain name service
+        - Why does DNS sacrifice strong consistency to achieve high performance and scalability?
+            - This is due to the following reasons:
+                - Response from DNS must be returned swiftly to resolve the IP address of a web url. Therefore, the DNS service must achieve high performance.
+                - We have billions of users from around the world that need to use DNS to get IP addressed to access internet. Therefore, the DNS service must achieve scalability.
+                - DNS prioritizes **eventual consistency** because it processes significantly more read operations than write operations. Updates to DNS records propagate lazily, allowing for faster responses to queries without overloading the infrastructure.
+        - what is the difference between UDP and TCP?
+            - In computer networks, UDP (User Datagram Protocol) and TCP (Transmission Control Protocol) are two fundamental protocols for data transmission. Here are the key differences between them:
+                - Connection Type
+                    - TCP: Connection-oriented. It establishes a connection before data transfer.
+                    - UDP: Connectionless. It sends data without establishing a connection.
+                - Reliability
+                    - TCP: Reliable. It ensures data is received in order and without errors, using acknowledgments and retransmissions.
+                    - UDP: Unreliable. There are no guarantees for delivery, order, or error-checking.
+                - Speed
+                    - TCP: Slower due to handshaking and error-checking mechanisms.
+                    - UDP: Faster since it has minimal overhead and no connection establishment.
+                - Data Transmission
+                    - TCP: Data is sent as a stream of bytes, maintaining order.
+                    - UDP: Data is sent as discrete packets, without a guarantee of order.
+                - Use Cases
+                    - TCP: Suitable for applications where accuracy is crucial (e.g., web browsing, email).
+                    - UDP: Ideal for applications that require speed and can tolerate some data loss (e.g., video streaming, online gaming).
+                - Header Size
+                    - TCP: Larger header (20 bytes minimum) due to additional control information.
+                    - UDP: Smaller header (8 bytes), leading to less overhead.
+                - In sum, TCP is reliable and ordered, making it suitable for critical data transmission, while UDP is faster and simpler, ideal for applications that prioritize speed over reliability.
+        - DNS caching improves performance but introduces the risk of stale data. Suppose an organization updates its website’s IP address, but many users still access the old IP due to caching. Propose a strategy to minimize disruption in such scenarios.
+            - Set a short TTL so that updated record can be fetched.
+            - Use a CDN to help mitigate the cache issue, as CDNs often have their own cache mechanisms and can route user to the correct content regardless of DNS caching
+            - Inform user that there is an update in IP address
+            - Maintain both old and new IP addresses for a period of time before the old address is gone, make both address point to the same server or load balancer.
+    - Load balancer
+        - How would you ensure consistent routing for user sessions (e.g., a shopping cart) in a system using multiple load balancers to prevent single points of failure?
+            - To ensure consistent routing for user sessions, particularly in a system with multiple load balancers, we can employ several strategies alongside consistent hashing. Here’s a more detailed approach:
+                - Sticky Sessions (Session Affinity): configure the load balancers to use sticky sessions, where all requests from a user during a session are directed to the same server.
+                - Session Replication: replicate session data across multiple servers to ensure that any server can handle requests for any session.
+                - Consistent Hashing: as mentioned, consistent hashing ensures that a specific session ID is always routed to the same server, minimizing re-distribution of sessions when servers are added or removed.
+        - Discuss solutions for maintaining session persistence in a highly available load-balancing setup.
+            - Database-backed Sessions. Description: Store session data in a relational or NoSQL database. Implementation: When a user logs in or starts a session, the session data is saved to the database. Each request can then check the database for session data, ensuring consistency across servers.
+            - Distributed Session Store. Description: Store session data in a centralized, distributed data store to allow any server to retrieve session information. Implementation: Use databases like Redis, Memcached, or a SQL database to persist session data. This allows all servers to access the same session information regardless of where the request is routed.
+        - Having familiarized yourself with load balancers, consider a scenario where you deploy a website that serves static content, such as text and images. Would you choose a stateful or stateless load balancer, and why?
+            - I will use stateless load balancer as these are static content, may not need to track user session or maintain state information between requests. 
+        - In this chapter, we have explored various functions of load balancing. In addition to different roles, load balancers are often responsible for mitigating distributed denial-of-service (DDoS) attacks. How can they distinguish between legitimate traffic and malicious traffic during such incidents?
+            - Load balancers mitigate DDoS attacks by analyzing traffic patterns for anomalies, implementing rate limiting, using behavioral analytics, checking IP reputations, serving CAPTCHA challenges, and performing Layer 7 inspections. They can also block known malicious IPs or regions, as well as the challenges posed by IP spoofing and distributed attacks. These techniques work together to enhance security and ensure legitimate traffic is prioritized. 
+    - Databases
+        - relational databases
+            - it adhere to particular schema before storing the data
+            - SQL is used to manipulate the database
+        - non-relational databases
+            - key-value stores
+            - document databases
+            - graph databases
+            - columnar databases
+        - Why do you need databases? Why can’t you just use files?
+            - We need a database due to the following reasons:
+            - Managing large data: A large amount of data can be easily handled with a database, which wouldn’t be possible using other tools.
+            - Retrieving accurate data (data consistency): Due to different constraints in databases, we can retrieve accurate data whenever we want.
+            - Easy update: It is quite easy to update data in databases using data manipulation language (DML).
+            - Security: Databases ensure the security of the data. A database only allows authorized users to access data.
+            - Data integrity: Databases ensure data integrity by using different constraints for data.
+            - Availability: Databases can be replicated on different servers, which can be concurrently updated. These replicas ensure availability.
+            - Scalability: Databases are divided into multiple partitions to manage the load on a single node. This increases scalability.
+            - Efficiency in data retrieval: Databases are designed to facilitate quick and efficient retrieval of data.
+            - Data recovery and backup: Databases offer mechanisms for data backup and recovery to protect against data loss due to hardware failures, power outages, or other disasters.
+    - key-value stores
+        - Describe how a key-value store can support incremental scalability without disrupting service availability.
+            - With consistent hashing and data Migration, we can minimizes data movement when nodes are added or removed. It ensures that only a fraction of keys need to be relocated, reducing disruption. Data migration can happen in the background, allowing the system to continue processing requests while keys are being moved to new nodes. This ensures that user-facing operations are not disrupted. Instead of moving all data at once, data can also be migrated incrementally. This approach allows for gradual adjustment of load and minimizes impact on performance. Also, with data redundancy, such as virtual nodes, we not only provides high availability but also allows for load balancing since read requests can be served by any replica.
+
