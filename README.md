@@ -1,3 +1,6 @@
+# Main
+This repo organizes various coding practices and ML-related resources.
+
 # Resources
 - [ChatGPT System Design](https://algodaily.com/lessons/chatgpt-system-design)
 - [Notes for recsys](https://vinija.ai/recsys/)
