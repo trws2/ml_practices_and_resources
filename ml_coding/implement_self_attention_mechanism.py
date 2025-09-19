@@ -1,42 +1,64 @@
 import numpy as np
 
-# def self_attention(Q, K, V):
-    
-#     def softmax(x):
-#         return np.exp(x)/sum(np.exp(x))        
-
-#     d = len(Q)
-#     tmp = np.dot(np.transpose(Q), K) * 1/np.sqrt(d)
-#     for i in range(len(tmp)):
-#         tmp[i] = softmax(tmp[i])
-    
-#     attention_output = np.dot(tmp, V)
-# 	return attention_output
-
-
-# def compute_qkv(X, W_q, W_k, W_v):
-#     Q = np.dot(X, W_q)
-#     K = np.dot(X, W_k)
-#     V = np.dot(X, W_v)
-#     return Q, K, V
 
 
 def compute_qkv(X, W_q, W_k, W_v):
+    """
+    Compute Query, Key, and Value matrices from input X and weight matrices.
+    
+    Args:
+        X: Input matrix of shape (seq_len, d_model)
+        W_q: Query weight matrix of shape (d_model, d_k)
+        W_k: Key weight matrix of shape (d_model, d_k)
+        W_v: Value weight matrix of shape (d_model, d_v)
+    
+    Returns:
+        Q, K, V: Query, Key, Value matrices
+    """
     Q = np.dot(X, W_q)
     K = np.dot(X, W_k)
     V = np.dot(X, W_v)
     return Q, K, V    
 
-def softmax(mat):
-    for i in range(len(mat)):
-        mat[i] = np.exp(mat[i])/sum(np.exp(mat[i]))
-    return mat
+def softmax(x, axis=-1):
+    """
+    Numerically stable softmax implementation.
+    
+    Args:
+        x: Input array
+        axis: Axis along which to compute softmax
+    
+    Returns:
+        Softmax of input array
+    """
+    # Subtract max for numerical stability
+    x_shifted = x - np.max(x, axis=axis, keepdims=True)
+    exp_x = np.exp(x_shifted)
+    return exp_x / np.sum(exp_x, axis=axis, keepdims=True)
 
 def self_attention(Q, K, V):
-    d = Q.shape[1]
-    tmp = np.dot(Q, K.T)
-
-    attention_output = np.dot(softmax(np.dot(Q, K.T)/np.sqrt(d)), V)
+    """
+    Compute self-attention using Query, Key, and Value matrices.
+    
+    Args:
+        Q: Query matrix of shape (seq_len, d_k)
+        K: Key matrix of shape (seq_len, d_k)
+        V: Value matrix of shape (seq_len, d_v)
+    
+    Returns:
+        attention_output: Output of self-attention mechanism
+    """
+    d_k = Q.shape[1]  # Use d_k (dimension of keys) for scaling
+    
+    # Compute attention scores
+    scores = np.dot(Q, K.T) / np.sqrt(d_k)
+    
+    # Apply softmax to get attention weights
+    attention_weights = softmax(scores, axis=1)  # Apply softmax along each row
+    
+    # Compute final output
+    attention_output = np.dot(attention_weights, V)
+    
     return attention_output
 
 
