@@ -10,6 +10,7 @@ def compute_qkv(X, W_q, W_k, W_v):
 
 def self_attention(Q, K, V):
     def softmax(M):
+        # note that it is subtracting max that prevents overflow
         tmp = M - np.max(M, axis=1, keepdims=True)
         tmp = np.exp(tmp)
         return tmp / np.sum(tmp, axis=1, keepdims=True)
