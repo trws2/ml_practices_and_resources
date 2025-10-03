@@ -1,3 +1,63 @@
+# newer implementation with vectorized implementation
+    import numpy as np
+
+def compute_qkv(X, W_q, W_k, W_v):
+	Q = np.dot(X, W_q)
+	K = np.dot(X, W_k)
+	V = np.dot(X, W_v)
+    return Q, K, V
+
+def self_attention(Q, K, V):
+    def softmax(M):
+        M = M - np.max(M, axis=1, keepdims=True)
+        M = np.exp(M)
+        M = M / np.sum(M, axis=1, keepdims=True)
+        return M
+
+    d_k = Q.shape[1]
+	return np.dot(softmax(np.dot(Q, K.T) / np.sqrt(d_k)), V)
+
+def multi_head_attention(Q, K, V, n_heads):
+    # d = Q.shape[1]
+    # assert d % n_heads == 0
+    # d_k = d // n_heads
+
+    # Q_new = Q.reshape(Q.shape[0], n_heads, d_k).transpose(1, 0, 2)
+    # K_new = K.reshape(K.shape[0], n_heads, d_k).transpose(1, 0, 2)
+    # V_new = V.reshape(V.shape[0], n_heads, d_k).transpose(1, 0, 2)        
+
+    # attention = []
+    # for i in range(n_heads):
+    #     attention.append(self_attention(Q_new[i], K_new[i], V_new[i]))
+    # return np.concatenate(attention, axis=1)
+
+
+    d = Q.shape[1]
+    assert d % n_heads == 0
+    d_k = d // n_heads
+
+    # reshape to (n_heads, seq_len, d_k)
+    Q_new = Q.reshape(Q.shape[0], n_heads, d_k).transpose(1, 0, 2)
+    K_new = K.reshape(K.shape[0], n_heads, d_k).transpose(1, 2, 0)
+    V_new = V.reshape(V.shape[0], n_heads, d_k).transpose(1, 0, 2)
+
+    # attention scores: (n_heads, seq_len, seq_len)
+    # scores = np.einsum("hqd,hkd->hqk", Q_new, K_new) / np.sqrt(d_k)
+    scores = np.matmul(Q_new, K_new) / np.sqrt(d_k)
+
+    # softmax over last axis
+    scores = scores - np.max(scores, axis=-1, keepdims=True)
+    attn = np.exp(scores)
+    attn /= np.sum(attn, axis=-1, keepdims=True)
+
+    # weighted sum: (n_heads, seq_len, d_k)
+    # out = np.einsum("hqk,hkd->hqd", attn, V_new)
+    out = np.matmul(attn, V_new)
+
+    # back to (seq_len, d)
+    return out.transpose(1, 0, 2).reshape(Q.shape[0], d)
+
+
 # newer implementation
 
 import numpy as np
