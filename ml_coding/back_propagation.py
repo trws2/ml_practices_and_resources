@@ -43,7 +43,7 @@ class NeuralNetwork:
         for epoch in range(epochs):
             output = self.feedforward(X)
             self.backward(X, y, learning_rate)
-            if epoch % 4000 == 0:
+            if epoch % 400 == 0:
                 loss = np.mean(np.square(y - output))
                 print(f"Epoch {epoch}, Loss:{loss}")
 
