@@ -1,60 +1,82 @@
+
 import numpy as np
 
-class NeuralNetwork:
-    def __init__(self, input_size, hidden_size, output_size):
+class NeutralNetwork:
+    def __init__(self, input_size: int, hidden_size: int, output_size: int):
+        np.random.seed(42)
         self.input_size = input_size
         self.hidden_size = hidden_size
         self.output_size = output_size
+        # no bias term
+        self.W1 = np.random.randn(input_size, hidden_size) * (1 / np.sqrt(input_size))
+        self.W2 = np.random.randn(hidden_size, output_size) * (1 / np.sqrt(hidden_size))
 
-        self.weights_input_hidden = np.random.randn(self.input_size, self.hidden_size)
-        self.weights_hidden_output = np.random.randn(self.hidden_size, self.output_size)
+    def sigmoid(self, z: np.ndarray) -> np.ndarray:
+        z = np.clip(z, -500, 500)
+        return 1 / (1 + np.exp(-z))
 
-        self.bias_hidden = np.zeros((1, self.hidden_size))
-        self.bias_output = np.zeros((1, self.output_size))
+    def sigmoid_derivative(self, A: np.ndarray) -> np.ndarray:
+        return A * (1 - A)
 
-    def sigmoid(self, x):
-        return 1 / (1 + np.exp(-x))
+    def forward(self, X: np.ndarray) -> np.ndarray:
+        self.Z1 = np.matmul(X, self.W1)
+        self.A1 = self.sigmoid(self.Z1)
+        self.Z2 = np.matmul(self.A1, self.W2)
+        self.A2 = self.sigmoid(self.Z2)
+        return self.A2
 
-    def sigmoid_derivative(self, x):
-        return x * (1 - x)
+    def compute_loss(self, prob: np.ndarray, y: np.ndarray) -> float:
+        return np.mean((prob - y) ** 2)
 
-    def feedforward(self, X):
-        self.hidden_activation = np.dot(X, self.weights_input_hidden) + self.bias_hidden
-        self.hidden_output = self.sigmoid(self.hidden_activation)
+    def backward(self, X: np.ndarray, prob: np.ndarray, y: np.ndarray, learning_rate: float) -> None:
+        # propagate error
+        output_error = prob - y
+        W2_delta = output_error * self.sigmoid_derivative(self.A2)
+        W1_delta = np.matmul(W2_delta, self.W2.T) * self.sigmoid_derivative(self.A1) 
 
-        self.output_activation = np.dot(self.hidden_output, self.weights_hidden_output) + self.bias_output
-        self.predicted_output = self.sigmoid(self.output_activation)
+        # compute gradient
+        W2_grad = np.matmul(self.A1.T, W2_delta)
+        W1_grad = np.matmul(X.T, W1_delta)
 
-        return self.predicted_output
+        # update weights
+        self.W2 -= learning_rate * W2_grad
+        self.W1 -= learning_rate * W1_grad
 
-    def backward(self, X, y, learning_rate):
-        output_error = y - self.predicted_output
-        output_delta = output_error * self.sigmoid_derivative(self.predicted_output)
+    def train(self, X: np.ndarray, y: np.ndarray, learning_rate: float, max_iters: int, eps: float):
+        all_losses = []
+        break_from_loop = False
+        for i in range(max_iters):
+            prob = self.forward(X)
+            loss = self.compute_loss(prob, y)
+            all_losses.append(loss)
+            if i % 100 == 0:
+                print(f"iter={i}, loss={loss}")
+            if i > 0:
+                diff = abs(all_losses[-1] - all_losses[-2]) / (abs(all_losses[-2]) + 1e-12)
+                if diff < eps:
+                    print(f"Finished: iter={i}, loss={loss}, diff={diff}")
+                    break_from_loop = True
+                    break
+            self.backward(X, prob, y, learning_rate)
 
-        hidden_error = np.dot(output_delta, self.weights_hidden_output.T)
-        hidden_delta = hidden_error * self.sigmoid_derivative(self.hidden_output)
+        if not break_from_loop:
+            print(f"Finished: max iteration reached, loss={all_losses[-1]}, diff={diff}")
+        
 
-        self.weights_hidden_output += np.dot(self.hidden_output.T, output_delta) * learning_rate
-        self.bias_output += np.sum(output_delta, axis=0, keepdims=True) * learning_rate
-        self.weights_input_hidden += np.dot(X.T, hidden_delta) * learning_rate
-        self.bias_hidden += np.sum(hidden_delta, axis=0, keepdims=True) * learning_rate
+if __name__ == "__main__":
+    # XOR dataset
+    X = np.array([[0, 0], [1, 0], [0, 1], [1, 1]])
+    y = np.array([[0], [1], [1], [0]])
 
-    def train(self, X, y, epochs, learning_rate):
-        for epoch in range(epochs):
-            output = self.feedforward(X)
-            self.backward(X, y, learning_rate)
-            if epoch % 400 == 0:
-                loss = np.mean(np.square(y - output))
-                print(f"Epoch {epoch}, Loss:{loss}")
+    net = NeutralNetwork(2, 10, 1)
 
+    max_iters = 10000
+    learning_rate = 0.1
+    eps = 1e-6
+    net.train(X, y, learning_rate, max_iters, eps)
 
-X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
-y = np.array([[0], [1], [1], [0]])
-
-nn = NeuralNetwork(input_size=2, hidden_size=4, output_size=1)
-nn.train(X, y, epochs=10000, learning_rate=0.1)
-
-output = nn.feedforward(X)
-print("Predictions after training:")
-print(output)
+    prob = net.forward(X)
+    pred = prob >= 0.5
+    print(f"prob = {prob}")
+    print(f"pred = {pred}")
 
