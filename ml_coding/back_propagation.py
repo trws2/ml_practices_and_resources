@@ -7,9 +7,10 @@ class NeutralNetwork:
         self.input_size = input_size
         self.hidden_size = hidden_size
         self.output_size = output_size
-        # no bias term
         self.W1 = np.random.randn(input_size, hidden_size) * (1 / np.sqrt(input_size))
         self.W2 = np.random.randn(hidden_size, output_size) * (1 / np.sqrt(hidden_size))
+        self.act_type = "relu"
+        self.loss_type = "bce"
 
     def sigmoid(self, z: np.ndarray) -> np.ndarray:
         z = np.clip(z, -500, 500)
@@ -18,25 +19,47 @@ class NeutralNetwork:
     def sigmoid_derivative(self, A: np.ndarray) -> np.ndarray:
         return A * (1 - A)
 
+    def relu(self, z: np.ndarray) -> np.ndarray:
+        return np.maximum(0, z)
+
+    def relu_derivative(self, A: np.ndarray) -> np.ndarray:
+        return (A > 0).astype(float)
+
     def forward(self, X: np.ndarray) -> np.ndarray:
         self.Z1 = np.matmul(X, self.W1)
-        self.A1 = self.sigmoid(self.Z1)
+        if self.act_type == "relu":
+            self.A1 = self.relu(self.Z1)
+        else:
+            self.A1 = self.sigmoid(self.Z1)
         self.Z2 = np.matmul(self.A1, self.W2)
         self.A2 = self.sigmoid(self.Z2)
         return self.A2
 
     def compute_loss(self, prob: np.ndarray, y: np.ndarray) -> float:
-        return np.mean((prob - y) ** 2)
+        if self.loss_type == "bce":
+            eps = 1e-12
+            prob_clip = np.clip(prob, eps, 1 - eps)
+            return -np.mean(y * np.log(prob_clip) + (1 - y) * np.log(1 - prob_clip))
+        else:
+            return np.mean((prob - y) ** 2)
 
     def backward(self, X: np.ndarray, prob: np.ndarray, y: np.ndarray, learning_rate: float) -> None:
         # propagate error
-        output_error = prob - y
-        W2_delta = output_error * self.sigmoid_derivative(self.A2)
-        W1_delta = np.matmul(W2_delta, self.W2.T) * self.sigmoid_derivative(self.A1) 
+        if self.loss_type == "bce":
+            W2_delta = prob - y
+        else:
+            output_error = prob - y
+            W2_delta = output_error * self.sigmoid_derivative(self.A2)
+
+        if self.act_type == "relu":
+            W1_delta = np.matmul(W2_delta, self.W2.T) * self.relu_derivative(self.A1) 
+        else:
+            W1_delta = np.matmul(W2_delta, self.W2.T) * self.sigmoid_derivative(self.A1) 
 
         # compute gradient
-        W2_grad = np.matmul(self.A1.T, W2_delta)
-        W1_grad = np.matmul(X.T, W1_delta)
+        m = X.shape[0]
+        W2_grad = np.matmul(self.A1.T, W2_delta) / m
+        W1_grad = np.matmul(X.T, W1_delta) / m
 
         # update weights
         self.W2 -= learning_rate * W2_grad
@@ -64,15 +87,15 @@ class NeutralNetwork:
         
 
 if __name__ == "__main__":
-    # XOR dataset
-    X = np.array([[0, 0], [1, 0], [0, 1], [1, 1]])
+    # XOR datase; adding bias term value (1) in the end of each examples
+    X = np.array([[0, 0, 1], [1, 0, 1], [0, 1, 1], [1, 1, 1]])
     y = np.array([[0], [1], [1], [0]])
 
-    net = NeutralNetwork(2, 10, 1)
+    net = NeutralNetwork(3, 10, 1)
 
-    max_iters = 10000
+    max_iters = 100000
     learning_rate = 0.1
-    eps = 1e-6
+    eps = 1e-8
     net.train(X, y, learning_rate, max_iters, eps)
 
     prob = net.forward(X)
