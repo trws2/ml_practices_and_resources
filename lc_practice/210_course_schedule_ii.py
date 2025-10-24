@@ -1,3 +1,42 @@
+# new implementation
+class Solution:
+    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
+        # build adj. list for the graph
+        adj_list = {c: [] for c in range(numCourses)}
+        for prereq in prerequisites:
+            adj_list[prereq[0]].append(prereq[1])
+
+        # maintain a visited set and a visiting set and construct the DFS function
+        visited, visiting = set(), set()
+        ret = []
+        def dfs(cur_course: int) -> bool:
+            if cur_course in visiting:
+                # cycle detected
+                return False
+            if cur_course in visited:
+                return True
+
+            visiting.add(cur_course)
+            for preq in adj_list[cur_course]:
+                if dfs(preq) == False:
+                    return False
+
+            visiting.remove(cur_course)
+            visited.add(cur_course)
+            ret.append(cur_course)
+            return True
+
+        # for each course, run DFS to construct topo. ordering. if cycle is detected return []
+        for c in range(numCourses):
+            if c in visited:
+                continue
+            if dfs(c) == False:
+                return []
+
+        # return final topo. ordering
+        return ret
+
+
 # runtime: O(numCourses + |prerequisites|)
 # space: O(numCourses + |prerequisites|)
 
